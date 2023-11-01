@@ -5,11 +5,11 @@ lint:
 webpack:
 		npx webpack serve
 build:
-	rm -rf dist
-	NODE_ENV=production npx webpack
+		rm -rf dist
+		NODE_ENV=production npx webpack
 install-deps:
-	npm install
+		npm install
 test:
-	npm test
+		npm test
 publish:
-	npm publish
+		npm publish

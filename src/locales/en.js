@@ -1,20 +1,19 @@
 export default {
   translation: {
-    feedback: {
-      sucсess: 'RSS successfully uploaded',
-      errors: {
-        alreadyExists: 'RSS already exists',
-        invalidURL: 'The link must be a valid URL',
-        invalidRSS: 'Resource does not contain valid RSS',
-        networkError: 'Network error',
-      },
-    },
+    header: 'RSS Aggregator ',
+    feeds: 'Feeds',
+    posts: 'Posts',
     buttons: {
-      postButton: 'View',
+      add: 'add',
+      watch: 'View',
     },
-    headers: {
-      postsHeader: 'Posts',
-      feedsHeader: 'Feeds',
+    errors: {
+      invalid: 'The link must be a valid URL',
+      duplicate: 'RSS already exists',
+      empty: 'Must not be empty',
+      invalidRss: 'Resource does not contain valid RSS',
+      axiosError: 'Network error',
     },
+    success: 'RSS successfully uploaded',
   },
 };
