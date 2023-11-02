@@ -1,22 +1,20 @@
 #!/usr/bin/env node
 
 import axios, { AxiosError } from 'axios';
-import  'bootstrap';
+import 'bootstrap';
 import './styles/styles.scss';
 import * as yup from 'yup';
 import onChange from 'on-change';
 import i18next from 'i18next';
-import ru from './locales/ru.js';
-import parser from './parse.js';
-import builder from './build.js';
-import diff from './buildUpd.js';
+import resources from './locales/index';
+import parse from './parse';
+import builder from './build';
+import diff from './buildUpd';
 
 const i18nInstance = i18next.createInstance();
 i18nInstance.init({
   lng: 'ru',
-  resources: {
-    ru,
-  },
+  resources,
 });
 
 const state = {
@@ -55,7 +53,7 @@ const render = (type) => {
       })
       .then(() => axios.get(`https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(state.fields.link)}`))
       .then((response) => {
-        const data = parser(response);
+        const data = parse(response);
         if (data === null) {
           throw i18nInstance.t('errors.invalidRss');
         }
@@ -96,7 +94,7 @@ const render = (type) => {
         axios
           .get(`https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(link)}`)
           .then((response) => {
-            const data = parser(response);
+            const data = parse(response);
             const difference = diff(data, state.content);
             if (difference.length !== 0) {
               builder(difference, i18nInstance.t, type);
