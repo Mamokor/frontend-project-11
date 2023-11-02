@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import axios, { AxiosError } from 'axios';
-import * as bootstrap from 'bootstrap';
+import  'bootstrap';
 import './styles/styles.scss';
 import * as yup from 'yup';
 import onChange from 'on-change';
