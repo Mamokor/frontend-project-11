@@ -8,7 +8,7 @@ import onChange from 'on-change';
 import i18next from 'i18next';
 import resources from './locales/index';
 import parse from './parse';
-import builder from './build';
+import builder from './View';
 import diff from './buildUpd';
 
 const i18nInstance = i18next.createInstance();

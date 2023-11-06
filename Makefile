@@ -9,7 +9,6 @@ build:
 		NODE_ENV=production npx webpack
 install-deps:
 		npm install
-test:
-		npm test
+
 publish:
 		npm publish
