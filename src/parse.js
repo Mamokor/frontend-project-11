@@ -2,13 +2,16 @@ import uniqueId from 'lodash/uniqueId';
 
 const parse = (response) => {
   const parser = new DOMParser();
-  const doc = parser.parseFromString(response.data.contents, 'text/xml');
-  if (!doc.querySelector('rss')) {
-    return null;
-  }
-  const items = doc.querySelectorAll('item');
-  const mainTitle = doc.querySelector('channel > title').textContent;
-  const mainDescription = doc.querySelector('channel > description').textContent;
+  const parsedData = parser.parseFromString(data, 'application/xml'); 
+  const parserError = parsedData.querySelector('parsererror');
+  if (parserError && type === 'load') {
+    const error = new Error(parserError.textContent);
+    error.isParserError = true;
+    throw error;
+  }  
+  const items = parsedData.querySelectorAll('item');
+  const mainTitle = parsedData.querySelector('channel > title').textContent;
+  const mainDescription = parsedData.querySelector('channel > description').textContent;
   const data = { mainTitle, mainDescription, posts: [] };
   items.forEach((item) => {
     const id = uniqueId();
