@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import axios, { AxiosError } from 'axios';
 import 'bootstrap';
 import './styles/styles.scss';

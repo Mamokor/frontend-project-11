@@ -1,15 +1,13 @@
-import uniqueId from 'lodash/uniqueId';
-
 const parse = (data, link, type = 'load') => {
   const parser = new DOMParser();
-  const parsedData = parser.parseFromString(data, 'application/xml'); 
+  const parsedData = parser.parseFromString(data, 'application/xml');
   const parserError = parsedData.querySelector('parsererror');
   if (parserError && type === 'load') {
     const error = new Error(parserError.textContent);
     error.isParserError = true;
     throw error;
-  }  
-  
+  }
+
   const title = parsedData.querySelector('title');
   const description = parsedData.querySelector('description');
 
@@ -20,7 +18,7 @@ const parse = (data, link, type = 'load') => {
     description: descriptionText,
     link,
   };
-  
+
   const posts = parsedData.querySelectorAll('item');
   const postsData = [];
   posts.forEach((post) => {
