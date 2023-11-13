@@ -1,7 +1,8 @@
 const parse = (data, link, type = 'load') => {
-  const parser = new DOMParser();
-  const parsedData = parser.parseFromString(data, 'application/xml');
+  const domParser = new DOMParser();
+  const parsedData = domParser.parseFromString(data.contents, 'application/xml');
   const parserError = parsedData.querySelector('parsererror');
+
   if (parserError && type === 'load') {
     const error = new Error(parserError.textContent);
     error.isParserError = true;

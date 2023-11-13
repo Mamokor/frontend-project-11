@@ -7,13 +7,16 @@ export default {
       add: 'add',
       watch: 'View',
     },
-    errors: {
+    error: {
       invalid: 'The link must be a valid URL',
       duplicate: 'RSS already exists',
       empty: 'Must not be empty',
       invalidRss: 'Resource does not contain valid RSS',
       axiosError: 'Network error',
+      unknownError: 'Unknown error',
     },
-    success: 'RSS successfully uploaded',
+    hint: {
+      success: 'RSS successfully uploaded',
+    },
   },
 };

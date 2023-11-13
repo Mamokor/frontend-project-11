@@ -14,6 +14,8 @@ export default {
       invalidRss: 'Ресурс не содержит валидный RSS',
       axiosError: 'Ошибка сети',
     },
-    success: 'RSS успешно загружен',
+    hint: {
+      success: 'RSS успешно загружен',
+    },
   },
 };
