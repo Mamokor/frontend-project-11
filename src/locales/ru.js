@@ -7,7 +7,7 @@ export default {
       add: 'Добавить',
       watch: 'Просмотр',
     },
-    errors: {
+    error: {
       invalid: 'Ссылка должна быть валидным URL',
       duplicate: 'RSS уже существует',
       empty: 'Не должно быть пустым',
