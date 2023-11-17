@@ -1,39 +1,26 @@
-const parse = (data, link, type = 'load') => {
-  const domParser = new DOMParser();
-  const parsedData = domParser.parseFromString(data.contents, 'application/xml');
-  const parserError = parsedData.querySelector('parsererror');
+export default (data) => {
+  const parser = new DOMParser();
+  const parsedData = parser.parseFromString(data, 'application/xml');
 
-  if (parserError && type === 'load') {
-    const error = new Error(parserError.textContent);
-    error.isParserError = true;
-    throw error;
+  const error = parsedData.querySelector('parsererror');
+  if (error) {
+    throw new Error('Parser error');
   }
 
-  const title = parsedData.querySelector('title');
-  const description = parsedData.querySelector('description');
+  const channel = parsedData.querySelector('channel');
+  const feedTitle = channel.querySelector('title').textContent;
+  const feedDescription = channel.querySelector('description').textContent;
+  const feedLink = channel.querySelector('link').textContent;
+  const feed = { feedTitle, feedDescription, feedLink };
 
-  const descriptionText = (description) ? description.textContent : '';
+  const items = parsedData.querySelectorAll('item');
 
-  const feedData = {
-    title: title.textContent,
-    description: descriptionText,
-    link,
-  };
-
-  const posts = parsedData.querySelectorAll('item');
-  const postsData = [];
-  posts.forEach((post) => {
-    const postTitle = post.querySelector('title');
-    const postDescription = post.querySelector('description');
-    const postLink = post.querySelector('link');
-    postsData.push({
-      title: postTitle.textContent,
-      description: postDescription.textContent,
-      link: postLink.textContent,
-    });
+  const posts = Array.from(items).map((item) => {
+    const postTitle = item.querySelector('title').textContent;
+    const postDescription = item.querySelector('description').textContent;
+    const postLink = item.querySelector('link').textContent;
+    return { postTitle, postDescription, postLink };
   });
 
-  return [feedData, postsData];
+  return { feed, posts };
 };
-
-export default parse;
