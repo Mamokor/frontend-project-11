@@ -13,7 +13,9 @@ test:
 
 lint:
 	npx eslint .
+	
 fix:
-	npx eslint --fix .	
+	npx eslint --fix .
+		
 install-deps:
 	npm install	

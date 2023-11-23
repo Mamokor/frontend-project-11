@@ -90,10 +90,12 @@ const handleProcess = (elements, initialState, value, i18next) => {
   switch (value) {
     case 'sending': {
       elements.submitButton.disabled = true;
+      elements.form.disabled = true;
       break;
     }
     case 'sent': {
       elements.submitButton.disabled = false;
+      elements.form.disabled = false;
       elements.form.reset();
       elements.input.focus();
       elements.input.classList.remove('is-invalid');
@@ -135,7 +137,7 @@ const createContainer = (elements, state) => {
   state.uiState.visitedPosts.forEach((id) => {
     const visitedPost = elements.posts.querySelector(`[data-id="${id}"]`);
     visitedPost.classList.remove('fw-bold');
-    visitedPost.classList.add('fw-normal');
+    visitedPost.classList.add('fw-normal', 'link-secondary');
   });
 };
 

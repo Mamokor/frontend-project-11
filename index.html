@@ -1,23 +1,21 @@
 <!doctype html>
 <html lang="ru">
-  
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
         <title>Hexlet Frontend Project</title>
     </head>
-
     <body class="d-flex flex-column min-vh-100">
-        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title"></h5>
-                        <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body text-break"></div>
+                    <div class="modal-body"></div>
                     <div class="modal-footer">
-                        <a class="btn btn-primary full-article" href="#" role="button" target="_blank" rel="noopener noreferrer">Читать полностью </a>
+                        <a role="button" href='#' class="btn btn-primary full-article" tabindex ="-1" target="_blank">Читать полностью</a>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
                     </div>
                 </div>
@@ -29,7 +27,7 @@
                     <div class="col-md-10 col-lg-8 mx-auto text-white">
                         <h1 class="display-3 mb-0">RSS агрегатор</h1>
                         <p class="lead">Начните читать RSS сегодня! Это легко, это красиво.</p>
-                        <form action="" class="rss-form text-body">
+                        <form class="rss-form text-body">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-floating">
@@ -56,8 +54,8 @@
         </main>
         <footer class="footer border-top py-3 mt-5 bg-light">
             <div class="container-xl">
-                <div class="text-center">
-                    created by <a href="https://github.com/Mamokor" target="_blank">Andrey Kargin</a>
+                <div class="text-center">created by 
+                    <a href="https://github.com/DSFirstaev/frontend-project-11" target="_blank">Andrey Kargin</a>
                 </div>
             </div>
         </footer>
