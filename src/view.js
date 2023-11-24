@@ -95,7 +95,6 @@ const handleProcess = (elements, initialState, value, i18next) => {
     }
     case 'sent': {
       elements.submitButton.disabled = false;
-      elements.form.disabled = false;
       elements.form.reset();
       elements.input.focus();
       elements.input.classList.remove('is-invalid');
