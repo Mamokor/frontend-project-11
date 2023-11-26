@@ -147,10 +147,12 @@ export default () => {
       watchedState.uiState.modal = currentId;
     });
     elements.posts.addEventListener('click', (e) => {
-      const { id } = e.target.dataset.id;
-      if (id) {
-        watchedState.uiState.visitedPosts.add(id);
+      const { target } = e;
+      const postId = target.getAttribute('data-id');
+      if (!('id' in target.dataset)) {
+        return;
       }
+      watchedState.uiState.visitedPosts.add(postId);
     });
   });
 };
